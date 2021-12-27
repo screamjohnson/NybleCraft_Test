@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block title %}
+Employees_edit
+{% endblock %}
+{% block content %}
+<div class="user_menu">
+    <a href="{% url 'main:index' %}">Домой</a>
+    <a href="{% url 'staff:post_list_by_department' %}">Подразделения</a>
+    <a href="{% url 'staff:post_employees' %}">Должности</a>
+    <a href="{% url 'staff:employees_detail' %}">Сотрудники</a>
+</div>
+    <h2>Изменить данные</h2>
+        <form method="POST" action="{% url 'staff:edit_employees' %}?id={{employees.id}}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-error">{{ form.non_field_errors }}</div>
+                <p>Ф.И.О.: {{employees.title}}</p>
+                <p>Пришел на работу: {{employees.started}}</p>
+                <p>Стаж: {{employees.started|timesince}}</p>
+                {{ form.as_p }}
+            <button type="submit">Изменить</button>
+        </form>
+{% endblock %}
