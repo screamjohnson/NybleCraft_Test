@@ -1,0 +1,131 @@
+body{
+    background: #cccccc;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+.block_logo{
+    display: flex;
+    justify-content: space-around;
+    color: #083ee3;
+}
+.logo_icon{
+    display: flex;
+    width: 10%;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+.logo_icon_a{
+    /*margin-left: 30px;*/
+}
+.icon_img{
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+}
+.block_nav{
+    display: flex;
+    justify-content: center;
+    background: #f5dd5d;
+}
+.block_nav>a{
+    padding: 20px;
+    text-decoration: none;
+}
+.block_nav>a:hover{
+    font-weight: bold;
+    color: yellow;
+    background: #3875d7;
+}
+
+.categories{
+    display: flex;
+    justify-content: center;
+    background: darkseagreen;
+}
+.categories_a{
+    text-decoration: none;
+    margin: 20px;
+    color: #003366;
+}
+
+.card{
+    width: 200px;
+    /*height: 300px;*/
+    border: 1px solid #ba2121;
+    border-radius: 10px;
+
+}
+.main_card{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.item{
+    border:2px solid black;
+    display: flex;
+    justify-content: space-around;
+
+}
+h1{
+    text-align: center;
+}
+.myin{
+    display: flex;
+    justify-content: space-between;
+}
+.icon_img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.block_footer{
+    display: flex;
+    justify-content: space-around;
+    background: #708090;
+    position:fixed;
+    bottom: 0;
+    margin-bottom:0;
+    height:80px;
+    width:100%;
+    font-size: 12px;
+    color: #DCDCDC;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+}
+.block_menu{
+    display:flex;
+    justify-content:space-around;
+    width:100%
+    background: #f5dd5d;
+}
+.authorisation>a{
+    padding:20px;
+    text-decoration:none;
+    color:red;
+    font-width:bold;
+    width:100%
+    background: #f5dd5d;
+}
+.user_menu{
+    display: flex;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    background: darkolivegreen;
+    color: yellow;
+}
+.user_menu>a{
+    text-decoration: none;
+    color: yellow;
+    font-weight: bold;
+    padding: 20px;
+}
+.errorlist li{
+    color: red;
+}

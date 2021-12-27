@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block title %}
+user_profile
+{% endblock %}
+
+{% block content %}
+<div class="user_menu">
+    <a href="{% url 'main:index' %}">Домой</a>
+    <a href="{% url 'staff:post_list_by_department' %}">Подразделения</a>
+    <a href="{% url 'staff:post_employees' %}">Должности</a>
+    <a href="{% url 'staff:employees_detail' %}">Сотрудники</a>
+</div>
+{% endblock %}
+
+
+

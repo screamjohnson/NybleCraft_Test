@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block title %}
+Department_list
+{% endblock %}
+{% block content %}
+<div class="user_menu">
+    <a href="{% url 'main:index' %}">Домой</a>
+    <a href="{% url 'staff:post_list_by_department' %}">Подразделения</a>
+    <a href="{% url 'staff:post_employees' %}">Должности</a>
+    <a href="{% url 'staff:employees_detail' %}">Сотрудники</a>
+</div>
+<div id = 'department' class="department-list">
+    <h1> Отделы </h1>
+    {% for department in departments %}
+            {{department.title}}
+        <a href="{% url 'staff:delete_department' %}?id={{ department.id }}">Удалить</a><br>
+    {% endfor %}
+</div>
+<div>
+    <form action="{% url 'staff:create_department' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for f in form %}
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}<br></p>
+        {% endfor %}
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+{% endblock %}

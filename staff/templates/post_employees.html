@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block title %}
+Post_list
+{% endblock %}
+
+{% block content %}
+<div class="user_menu">
+    <a href="{% url 'main:index' %}">Домой</a>
+    <a href="{% url 'staff:post_list_by_department' %}">Подразделения</a>
+    <a href="{% url 'staff:post_employees' %}">Должности</a>
+    <a href="{% url 'staff:employees_detail' %}">Сотрудники</a>
+</div>
+<div id = 'post' class="post-list">
+    <h2> Должности </h2>
+    <table border="1">
+        <tr><th>Id</th><th>Должность</th><th>Подразделение</th><th></th></tr>
+        {% for post in posts %}
+        <tr><th>{{post.id}}</th><th>{{post.title}}</th><th>{{post.department}}</th><th><a href="{% url 'staff:delete_post' %}?id={{post.id}}">Удалить</a></th></tr>
+        {% endfor %}
+    </table>
+<form method="POST" action="{% url 'staff:create_post' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}<br></p>
+    {% endfor %}
+    <button type="submit">Добавить</button>
+</form>
+</div>
+{% endblock %}

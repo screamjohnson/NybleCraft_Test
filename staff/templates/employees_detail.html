@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block title %}
+Employees
+{% endblock %}
+{% block content %}
+<div class="user_menu">
+    <a href="{% url 'main:index' %}">Домой</a>
+    <a href="{% url 'staff:post_list_by_department' %}">Подразделения</a>
+    <a href="{% url 'staff:post_employees' %}">Должности</a>
+    <a href="{% url 'staff:employees_detail' %}">Сотрудники</a>
+</div>
+    <h2>Список пользователей</h2>
+    <table border="1">
+        <tr><th>Id</th><th>Ф.И.О.</th><th>Подразделение</th><th>Должность</th><th>Пришел на работу</th><th>Стаж</th><th></th><th></th></tr>
+        {% for employees in employees %}
+        <tr>
+            <td>{{ employees.id }}</td>
+            <td>{{ employees.title }}</td>
+            <td>{{ employees.department }}</td>
+            <td>{{ employees.post }}</td>
+            <td>{{ employees.started }}</td>
+            <td>{{ employees.started | timesince }}</td>
+            <td><a href="{% url 'staff:delete_employees' %}?id={{employees.id}}">Удалить</a></td>
+            <td><a href="{% url 'staff:edit_employees' %}?id={{employees.id}}">Изменить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+<form method="POST" action="{% url 'staff:create_employees' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}<br></p>
+    {% endfor %}
+    <button type="submit">Добавить</button>
+</form>
+{% endblock %}
